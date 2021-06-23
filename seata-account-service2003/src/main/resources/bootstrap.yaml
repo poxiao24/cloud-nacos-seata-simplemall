@@ -1,0 +1,46 @@
+server:
+  port: 2003
+
+spring:
+  application:
+    name: seata-account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:9000
+      config:
+        server-addr: localhost:9000
+        file-extension: yaml
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_account?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: '0506'
+    type: com.alibaba.druid.pool.DruidDataSource
+feign:
+  hystrix:
+    enabled: false
+logging:
+  level:
+    io:
+      seata: info
+ribbon:
+  # 指的是建立连接所用的时间,适用于网络状态正常的情况下,两端连接所用的时间
+  ReadTimeout: 5000
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+seata:
+  application-id: ${spring.application.name}
+  tx-service-group: guoshao_tx_group
+  service:
+    grouplist:
+      default: 127.0.0.1:8091
+    vgroup-mapping:
+      guoshao_tx_group: default
