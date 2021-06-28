@@ -9,21 +9,22 @@
 ## 项目介绍
 
 `cloud-nacos-seata-simplemall`是一套简单的微服务分布式商城系统（包括订单order、账户account、库存storage三个微服务），采用了 Spring Cloud Hoxton & Alibaba、Spring Boot 2.3、
-MyBatis等核心技术，在业务的基础上集成了注册中心、配置中心等系统功能，考虑到业务发展需要，使用seata的分布式事务解决方案处理事务。
+MyBatis等核心技术，在业务的基础上集成了nacos注册中心、配置中心等系统功能，考虑到业务发展需要，使用seata的分布式事务解决方案处理事务。具体为order微服务作为消费者提供下订单功能，对应调用storage微服务作为提供者执行扣减库存，调用account微服务作为提供者执行扣减余额，订单创建成功。若库存不足或余额不足，会执行事务回滚，订单创建失败。
 
-## 系统架构图
+## 数据库设计
+![image](https://user-images.githubusercontent.com/49785231/123651904-6d776a00-d85e-11eb-9913-ffc5168d33b6.png)
+![image](https://user-images.githubusercontent.com/49785231/123651933-72d4b480-d85e-11eb-8f6b-4867eaaa7eff.png)
+![image](https://user-images.githubusercontent.com/49785231/123651956-77996880-d85e-11eb-8f1a-9b321553cd78.png)
 
-![系统架构图](http://img.macrozheng.com/mall/project/mall_micro_service_arch.jpg)
+## 程序模块设计
+![image](https://user-images.githubusercontent.com/49785231/123652907-466d6800-d85f-11eb-8fe9-60d820142a6f.png)
+![image](https://user-images.githubusercontent.com/49785231/123653032-63a23680-d85f-11eb-9464-345da1ea1b84.png)
+![image](https://user-images.githubusercontent.com/49785231/123653075-6ef56200-d85f-11eb-8407-760cb3f170e3.png)
 
 
-## 项目文档
+## 功能流程逻辑
+![image](https://user-images.githubusercontent.com/49785231/123652293-c21ae500-d85e-11eb-8db4-abc4edb3b263.png)
 
-- 项目文档`mall`系列教程：[http://www.macrozheng.com](http://www.macrozheng.com)
-
-## 项目演示
-
-- 后台管理系统： [http://www.macrozheng.com/admin/index.html](http://www.macrozheng.com/admin/index.html)  
-- 移动端商城系统：[http://www.macrozheng.com/app/index.html](http://www.macrozheng.com/app/index.html)
 
 ## 技术选型
 
@@ -38,6 +39,8 @@ MyBatis等核心技术，在业务的基础上集成了注册中心、配置中�
 | Druid                  | 数据库连接池         | https://github.com/alibaba/druid                     |
 | Lombok                 | 简化对象封装工具     | https://github.com/rzwitserloot/lombok               |
 | Seata                  | 全局事务管理框架     | https://github.com/seata/seata                       |
+| Nacos                  | 服务与注册中心组件     | https://github.com/alibaba/nacos                    |
+| Feign                  | 服务接口调用组件     | https://github.com/OpenFeign/feign                    |
 
 ## 环境搭建
 
@@ -54,4 +57,3 @@ MyBatis等核心技术，在业务的基础上集成了注册中心、配置中�
 
 - 查看注册中心注册服务信息，访问地址：http://113.54.153.189:9000/nacos/
 
-![](http://img.macrozheng.com/mall/project/mall_swarm_run_01.png)
