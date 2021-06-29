@@ -51,7 +51,8 @@ MyBatis等核心技术，在业务的基础上集成了nacos注册中心、配�
 | JDK           | 1.8    | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html |
 | Mysql         | 5.7    | https://www.mysql.com/                                       |
 | nginx         | 1.20   | http://nginx.org/en/download.html                            |
-
+## Nacos集群搭建
+![图片1](https://user-images.githubusercontent.com/49785231/123799082-6ca40e00-d91a-11eb-97ca-40d8a821d9ef.png)
 
 ## 运行效果展示
 
