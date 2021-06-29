@@ -55,5 +55,20 @@ MyBatis等核心技术，在业务的基础上集成了nacos注册中心、配�
 
 ## 运行效果展示
 
-- 查看注册中心注册服务信息，访问地址：http://113.54.153.189:9000/nacos/
+- 查看Nacos集群节点信息，访问地址：http://113.54.153.189:9000/nacos/
+![image](https://user-images.githubusercontent.com/49785231/123790450-ec2cdf80-d910-11eb-9d10-eedb98b245b3.png)
 
+- 查看配置中心配置信息，访问地址：http://113.54.153.189:9000/nacos/
+![image](https://user-images.githubusercontent.com/49785231/123790503-fe0e8280-d910-11eb-9ca0-2f1b38dc4f49.png)
+
+- 查看注册中心注册服务信息，访问地址：http://113.54.153.189:9000/nacos/
+![image](https://user-images.githubusercontent.com/49785231/123790741-462da500-d911-11eb-9005-11ea24684ac1.png)
+
+- 调用下订单功能，下订单完成，访问地址：http://localhost:2001/order/create?userId=1&productId=1&count=10&money=10
+![image](https://user-images.githubusercontent.com/49785231/123791906-98bb9100-d912-11eb-918e-d6f8de2bc907.png)
+- 调用下订单功能，余额不足，Feign调用扣减余额服务超时，事务回滚，下订单失败，访问地址：http://localhost:2001/order/create?userId=1&productId=1&count=10&money=1000
+![image](https://user-images.githubusercontent.com/49785231/123792642-6f4f3500-d913-11eb-9e99-c3da531002fb.png)
+![图片2](https://user-images.githubusercontent.com/49785231/123792094-d4565b00-d912-11eb-9c4f-7bda2ab6dfa6.png)
+- 调用下订单功能，库存不足，Feign调用扣减库存服务超时，事务回滚，下订单失败，访问地址：http://localhost:2001/order/create?userId=1&productId=1&count=1000&money=10
+![image](https://user-images.githubusercontent.com/49785231/123792542-5181d000-d913-11eb-9bcb-814ea3494240.png)
+![图片3](https://user-images.githubusercontent.com/49785231/123792240-fd76eb80-d912-11eb-925c-d04d35cdb5dc.png)
