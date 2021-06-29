@@ -64,6 +64,10 @@ MyBatis等核心技术，在业务的基础上集成了nacos注册中心、配�
 
 - 查看注册中心注册服务信息，访问地址：http://113.54.152.77:9000/nacos/
 ![image](https://user-images.githubusercontent.com/49785231/123790741-462da500-d911-11eb-9005-11ea24684ac1.png)
+- 调用下订单功能，下订单完成，访问地址：http://113.54.152.77:2001/config/info
+![image](https://user-images.githubusercontent.com/49785231/123800230-a6c1df80-d91b-11eb-8b71-dd3417865954.png)
+
+![image](https://user-images.githubusercontent.com/49785231/123800170-96116980-d91b-11eb-83d6-684c7654d200.png)
 
 - 调用下订单功能，下订单完成，访问地址：http://113.54.152.77:2001/order/create?userId=1&productId=1&count=10&money=10
 ![image](https://user-images.githubusercontent.com/49785231/123791906-98bb9100-d912-11eb-918e-d6f8de2bc907.png)
